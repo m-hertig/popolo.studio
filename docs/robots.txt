@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://popolo.studio/sitemap.xml
+Host: https://popolo.studio
