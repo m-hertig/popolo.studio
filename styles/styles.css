@@ -1,0 +1,42 @@
+@font-face {
+  font-family: 'gt_america_trialexpandedMd';
+  src: url("fonts/gt-america-trial-expanded-medium-webfont.woff2") format("woff2"), url("fonts/gt-america-trial-expanded-medium-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'gt_america_trialexpandedMd', Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  color: #0000ff; }
+
+.main {
+  margin: 2em; }
+
+ul.team {
+  padding: 0; }
+  ul.team li {
+    margin-left: 1em; }
+  ul.team img {
+    position: absolute;
+    bottom: -100vh;
+    z-index: -99;
+    height: 100vh;
+    transition: bottom 0.4s ease-in-out; }
+  ul.team li:hover {
+    color: red; }
+    ul.team li:hover img {
+      bottom: -50vh; }
+  ul.team li.jr img {
+    left: 0; }
+  ul.team li.fs img {
+    left: 150px; }
+  ul.team li.mh img {
+    left: 150px; }
+
+@media only screen and (max-width: 600px) {
+  .main {
+    margin: 0.8em; } }
+
+/*# sourceMappingURL=styles.css.map */
