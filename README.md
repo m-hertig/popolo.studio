@@ -1,2 +1,1 @@
-# popolo.studio
-popolo.studio website
+# popolo.stuio

@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'popolo_lt';
+    src: url('../fonts/gt-america-trial-expanded-light-webfont.woff2') format('woff2'),
+         url('../fonts/gt-america-trial-expanded-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html, body {
+ margin:0; padding: 0; width: 100%;
+ font-family: 'popolo_lt', Helvetica, Arial, sans-serif;
+ font-size: 1.4em;
+ line-height: 1.2em;
+ color: #1E1E1E;
+ -webkit-font-smoothing: antialiased;
+ -moz-osx-font-smoothing: grayscale;
+}
+h1 {
+   font-size: 1em;
+   font-weight: normal;
+   color: #0000ff;
+}
+
+.small_text {
+  font-size: 0.4em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  line-height: 1.4em;
+  margin-top: 4em;
+
+  .left {
+    width: 22em;
+  }
+  .arrow {
+    width: 30px;
+    height: auto;
+    margin-top: 4px;
+    margin-left: 1.8em;
+    margin-right: 2em;
+  }
+  .right {
+    width: 40em;
+  }
+}
+
+.main {
+ margin: 2em;
+}
+
+ul.team {
+ padding: 0;
+ li {
+  margin-left: 1em;
+ }
+  img {
+    position: absolute;
+    bottom: -100vh;
+    z-index: -99;
+    height: 100vh;
+    transition: bottom 0.4s ease-in-out;
+  }
+  li:hover {
+    color: red;
+    & img {
+      bottom: -50vh;
+    }
+  }
+
+  li.jr {
+    img {
+    left: 0;
+    }
+  }
+
+  li.fs {
+    img {
+    left: 150px;
+    }
+  }
+
+  li.mh {
+    img {
+    left: 150px;
+    }
+  }
+
+}
+@media only screen and (max-width: 600px) {
+ .main {
+     margin: 0.8em;
+   }
+}
