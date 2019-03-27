@@ -12,7 +12,7 @@ const config = {
   site_name: 'popolo.studio',
 
   // Your website's description, used for favicon meta tags
-  site_description: 'is a creative studio specialized in physical interactive design and storytelling.',
+  site_description: 'Loves you',
 
   // Your website's URL, used for sitemap
   site_url: 'https://popolo.studio',

@@ -1,24 +1,97 @@
 @font-face {
-    font-family: 'popolo_lt';
-    src: url('../fonts/gt-america-trial-expanded-light-webfont.woff2') format('woff2'),
-         url('../fonts/gt-america-trial-expanded-light-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'popolo_lt';
+  src:
+    url('../fonts/gt-america-trial-expanded-light-webfont.woff2') format('woff2'),
+    url('../fonts/gt-america-trial-expanded-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
-html, body {
- margin:0; padding: 0; width: 100%;
- font-family: 'popolo_lt', Helvetica, Arial, sans-serif;
- font-size: 1.4em;
- line-height: 1.2em;
- color: #1E1E1E;
- -webkit-font-smoothing: antialiased;
- -moz-osx-font-smoothing: grayscale;
+
+$popolo-blue: #00f;
+$popolo-black: #1e1e1e;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: 'popolo_lt', sans-serif;
+  font-size: 1.4em;
+  line-height: 1.2em;
+  color: $popolo-black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
+
+html,
+body,
+a {
+  cursor: url(../images/cursor.png), auto;
+}
+
+a,
+a:visited {
+  color: $popolo-blue;
+}
+
+.hidden {
+  display: none;
+}
+
+.main {
+  animation: fadeIn ease-out 0.6s;
+  margin: 2em;
+
+  * {
+    &::selection {
+      background: $popolo-blue;
+      color: white;
+    }
+
+    &::-moz-selection {
+      background: $popolo-blue;
+      color: white;
+    }
+  }
+}
+
 h1 {
-   font-size: 1em;
-   font-weight: normal;
-   color: #0000ff;
+  font-size: 1em;
+  font-weight: normal;
+  color: $popolo-blue;
+  font-family: 'popolo_lt', sans-serif;
+}
+
+a.cta_button {
+  color: $popolo-black;
+  transition: color 0.3s ease-out;
+  border: 1px solid transparent;
+  border-bottom: 1px solid $popolo-blue;
+  text-decoration: none;
+  padding-bottom: 2px;
+  box-sizing: content-box;
+
+  &:visited {
+    color: $popolo-black;
+  }
+
+  &:hover {
+    color: $popolo-blue;
+    border: 1px solid $popolo-blue;
+    border-radius: 2em;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 
 .small_text {
@@ -32,6 +105,7 @@ h1 {
   .left {
     width: 22em;
   }
+
   .arrow {
     width: 30px;
     height: auto;
@@ -39,55 +113,45 @@ h1 {
     margin-left: 1.8em;
     margin-right: 2em;
   }
+
   .right {
     width: 40em;
   }
 }
 
-.main {
- margin: 2em;
-}
-
 ul.team {
- padding: 0;
- li {
-  margin-left: 1em;
- }
-  img {
-    position: absolute;
-    bottom: -100vh;
-    z-index: -99;
-    height: 100vh;
-    transition: bottom 0.4s ease-in-out;
-  }
-  li:hover {
-    color: red;
-    & img {
-      bottom: -50vh;
-    }
-  }
+  padding: 0;
 
-  li.jr {
-    img {
-    left: 0;
-    }
+  li {
+    margin-left: 1em;
   }
-
-  li.fs {
-    img {
-    left: 150px;
-    }
-  }
-
-  li.mh {
-    img {
-    left: 150px;
-    }
-  }
-
 }
+
 @media only screen and (max-width: 600px) {
- .main {
-     margin: 0.8em;
-   }
+  html,
+  body {
+    font-size: 1em;
+  }
+
+  br.fluid_br {
+    display: none;
+  }
+
+  .small_text {
+    margin-top: 2em;
+    font-size: 0.75em;
+    flex-direction: column;
+
+    .left {
+      width: 100%;
+    }
+
+    .right {
+      width: 100%;
+    }
+  }
+
+  .main {
+    margin: 0.8em;
+  }
 }
