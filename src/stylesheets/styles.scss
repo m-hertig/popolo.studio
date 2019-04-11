@@ -19,23 +19,37 @@
 
 $popolo-blue: #00f;
 $popolo-black: #1e1e1e;
+$popolo-bg: #faf8f8;
+
+$font-size-large: 1.4em;
+$line-height-large: 1.2em;
+$font-size-small: 0.4em;
+$line-height-small: 1.4em;
 
 html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
+body,
+textarea,
+input,
+button {
   font-family: 'popolo_lt', sans-serif;
-  font-size: 1.4em;
-  line-height: 1.2em;
+  font-size: $font-size-large;
+  line-height: $line-height-large;
   color: $popolo-black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+html,
 body,
-a {
+a,
+button {
   cursor: url(../images/cursor.png), auto;
 }
 
@@ -95,11 +109,11 @@ a.cta_button {
 }
 
 .small_text {
-  font-size: 0.4em;
+  font-size: $font-size-small;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  line-height: 1.4em;
+  line-height: $line-height-small;
   margin-top: 4em;
 
   .left {
@@ -120,10 +134,78 @@ a.cta_button {
 }
 
 ul.team {
+  margin: 0;
   padding: 0;
+  list-style-type: none;
 
   li {
-    margin-left: 1em;
+    margin-left: 0;
+  }
+}
+
+.contact-form {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  min-height: 6em;
+  height: 82vh;
+  background-color: $popolo-bg;
+  z-index: 999;
+  width: 100%;
+
+  .form-wrapper {
+    margin: 0.5em 2em;
+  }
+
+  img.close {
+    padding: 1em;
+    width: 1.4em;
+    height: auto;
+  }
+
+  .instructions {
+    font-size: $font-size-small;
+    padding-left: 3.5em;
+    padding-top: 2em;
+  }
+
+  textarea {
+    border: none;
+    height: 22vh;
+    resize: none;
+    outline: none;
+    padding: 0.5em 1em;
+    width: calc(100% - 2em);
+  }
+
+  .first-row {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 0.4em;
+  }
+
+  .second-row {
+    background-color: white;
+    width: 100%;
+
+    input {
+      border: none;
+      outline: none;
+      font-size: $font-size-small;
+      padding: 2em;
+      padding-left: 3.5em;
+    }
+
+    button {
+      padding: 2em;
+      font-size: $font-size-small;
+      color: $popolo-blue;
+      background-color: white;
+      outline: none;
+      border: none;
+      margin: 0;
+      float: right;
+    }
   }
 }
 
