@@ -28,20 +28,20 @@ $(window).on('load', function () {
      var $message = $( ".contact_message" ).val();
      console.log("email: "+$email);
      console.log("message: "+$message);
-    //  $.post("http://martinhertig.ch/popolo/contactengine.php",{Email:$email, Message:$message},function(result){
-    //    $(".contact-form .form-wrapper").fadeOut(300, function () {
-    //      $('.contact-form .form-wrapper').html(result);
-    //    });
-    //    $(".contact-form .form-wrapper").fadeIn("300");
-    //    return;
-    // });
+     $.post("http://martinhertig.ch/popolo/contactengine.php",{Email:$email, Message:$message},function(result){
+       $(".contact-form .form-wrapper").fadeOut(300, function () {
+         $('.contact-form .form-wrapper').html(result);
+       });
+       $(".contact-form .form-wrapper").fadeIn("300");
+       return;
+    });
     $(".contact-form .form-wrapper").fadeOut(300, function () {
       $('.contact-form .form-wrapper').html("Thank you for your message! You will hear from us soon.");
     });
     $(".contact-form .form-wrapper").fadeIn("300");
    }
 
-   //event.preventDefault();
+   event.preventDefault();
  });
 
 

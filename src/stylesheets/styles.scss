@@ -260,3 +260,36 @@ ul.team {
     margin: 0.8em;
   }
 }
+
+.col-red {
+  a,
+  a:visited {
+    color: $popolo-red;
+  }
+
+  .main {
+    * {
+        &::selection {
+          background: $popolo-red;
+          color: white;
+        }
+
+        &::-moz-selection {
+          background: $popolo-red;
+          color: white;
+        }
+      }
+  }
+
+  h1 {
+    color: $popolo-red;
+  }
+
+  a.cta_button:hover {
+    color: $popolo-red;
+    border: 1px solid $popolo-red;
+  }
+  .contact-form .second-row button {
+    color: $popolo-red;
+  }
+}
