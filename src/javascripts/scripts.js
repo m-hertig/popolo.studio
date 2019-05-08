@@ -41,7 +41,7 @@ $(window).on('load', function () {
     $(".contact-form .form-wrapper").fadeIn("300");
    }
 
-   event.preventDefault();
+   //event.preventDefault();
  });
 
 
