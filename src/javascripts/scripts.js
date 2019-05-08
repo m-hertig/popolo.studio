@@ -33,7 +33,12 @@ $(window).on('load', function () {
          $('.contact-form .form-wrapper').html(result);
        });
        $(".contact-form .form-wrapper").fadeIn("300");
+       return;
     });
+    $(".contact-form .form-wrapper").fadeOut(300, function () {
+      $('.contact-form .form-wrapper').html("We are very happy that you want to send us a message. However this does not work yet. Please send us an email.");
+    });
+    $(".contact-form .form-wrapper").fadeIn("300");
    }
 
    event.preventDefault();
@@ -67,7 +72,8 @@ $(".popolo-title").hover( function () {
 $(".button_joy").hover( function () {
   $(this).fadeOut(0, function () {
     $(this).html('how');
-    $(".contact_message").attr("placeholder","Please bring me joy");
+    $(".contact_message").html("Please bring me joy");
+    setTimeout(function() {$(".contact_message").focus();},200);
   });
   $(this).fadeIn(100);
 },function () {
