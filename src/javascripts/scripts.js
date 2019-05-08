@@ -19,6 +19,27 @@ $(window).on('load', function () {
    $(".contact-form").slideUp("fast");
  });
 
+ $( ".contact-form .form-wrapper" ).submit(function( event ) {
+   if ( $( "input:first" ).val() == "" ) {
+     $( ".validaton" ).text( "Please tell us your email address first" ).show();
+     return;
+   } else {
+     var $email = $( ".contact_email" ).val();
+     var $message = $( ".contact_message" ).val();
+     console.log("email: "+$email);
+     console.log("message: "+$message);
+     $.post("http://martinhertig.ch/popolo/contactengine.php",{Email:$email, Message:$message},function(result){
+       $(".contact-form .form-wrapper").fadeOut(300, function () {
+         $('.contact-form .form-wrapper').html(result);
+       });
+       $(".contact-form .form-wrapper").fadeIn("300");
+    });
+   }
+
+   event.preventDefault();
+ });
+
+
 function nextText(){
     $('.popolo-variable').fadeOut(300, function () {
       $('.popolo-variable').html($popolo_texts[$popolo_texts_index]);
@@ -46,6 +67,7 @@ $(".popolo-title").hover( function () {
 $(".button_joy").hover( function () {
   $(this).fadeOut(0, function () {
     $(this).html('how');
+    $(".contact_message").attr("placeholder","Please bring me joy");
   });
   $(this).fadeIn(100);
 },function () {
@@ -59,6 +81,7 @@ $(".button_joy").hover( function () {
 $(".button_education").hover( function () {
   $(this).fadeOut(0, function () {
     $(this).html('yes please');
+    $(".contact_message").attr("placeholder","I want to be educated");
   });
   $(this).fadeIn(100);
 },function () {
