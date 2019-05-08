@@ -224,15 +224,27 @@ ul.team {
   html,
   body {
     font-size: 1.2em;
+    line-height: 1.5em;
   }
 
   br.fluid_br {
     display: none;
   }
 
+  .small_text,
+  .contact-form .instructions,
+  .contact-form .second-row button,
+  .contact-form .second-row input {
+    font-size: 0.75em;
+  }
+
+  .contact-form .instructions,
+  .contact-form .second-row input {
+    padding-left: 2em;
+  }
+
   .small_text {
     margin-top: 2em;
-    font-size: 0.75em;
     flex-direction: column;
 
     .left {
