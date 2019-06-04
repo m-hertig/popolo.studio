@@ -23,7 +23,7 @@ $popolo-bg: #faf8f8;
 
 $popolo-red: #e80c26;
 $popolo-green: #0ce882;
-$popolo-yellow: #ffee05;
+$popolo-yellow: #ffcf00;
 
 $font-size-large: 1.4em;
 $line-height-large: 1.35em;
@@ -43,23 +43,10 @@ button {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html,
 body {
   margin: 0;
   padding: 0;
   width: 100%;
-  cursor: url(../images/cursor.svg), auto;
-}
-
-a,
-a:visited {
-  color: $popolo-blue;
-}
-
-a,
-button,
-.close {
-  cursor: url(../images/cursor_hover.svg), auto;
 }
 
 .hidden {
@@ -72,12 +59,10 @@ button,
 
   * {
     &::selection {
-      background: $popolo-blue;
       color: white;
     }
 
     &::-moz-selection {
-      background: $popolo-blue;
       color: white;
     }
   }
@@ -86,7 +71,6 @@ button,
 h1 {
   font-size: 1em;
   font-weight: normal;
-  color: $popolo-blue;
   font-family: 'popolo_lt', sans-serif;
 }
 
@@ -104,8 +88,6 @@ a.cta_button {
   }
 
   &:hover {
-    color: $popolo-blue;
-    border: 1px solid $popolo-blue;
     border-radius: 2em;
     padding-left: 10px;
     padding-right: 10px;
@@ -161,7 +143,7 @@ ul.team {
     margin: 0.5em 2em;
   }
 
-  img.close {
+  .close {
     padding: 1em 0 0 3.2em;
     width: 1.4em;
     height: auto;
@@ -203,7 +185,6 @@ ul.team {
     button {
       padding: 2em;
       font-size: $font-size-small;
-      color: $popolo-blue;
       background-color: white;
       outline: none;
       border: none;
@@ -216,7 +197,7 @@ ul.team {
     padding: 1em 2em;
     font-size: 0.4em;
     text-align: right;
-    color: #f00;
+    color: $popolo-red;
   }
 }
 
@@ -259,4 +240,88 @@ ul.team {
   .main {
     margin: 0.8em;
   }
+}
+
+//does not work with colors containing alpha
+@function encodecolor($string) {
+  @if type-of($string) == 'color' {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string:unquote("#{$hex}");
+  }
+
+  $string: '%23' + $string;
+
+  @return $string;
+}
+
+@mixin colorChange($color) {
+  $colorEncoded: encodecolor($color);
+
+  cursor: url("data:image/svg+xml;utf8,<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'><ellipse cx='10' cy='10' rx='10' ry='8' fill='#{$colorEncoded}' /></svg>"), auto;
+
+  a,
+  a:visited {
+    color: $color;
+  }
+
+  a,
+  button,
+  .close {
+    cursor: url('data:image/svg+xml;utf8,<svg width="29" height="28" xmlns="http://www.w3.org/2000/svg"><g stroke="#{$colorEncoded}" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="square"><path d="M1.5 2L26 25M1.5 18.2034v-16.5M19 2H3"/></g></svg>'), auto;
+  }
+
+  a.cta_button {
+    color: $popolo-black;
+
+    &:visited {
+      color: $popolo-black;
+    }
+
+    &:hover {
+      color: $color;
+      border: 1px solid $color !important;
+    }
+  }
+
+  .main {
+    * {
+      &::selection {
+        background: $color;
+      }
+
+      &::-moz-selection {
+        background: $color;
+      }
+    }
+
+    h1 {
+      color: $color;
+    }
+  }
+
+  .contact-form {
+    .second-row button {
+      color: $color;
+    }
+
+    .close g {
+      stroke: $color;
+    }
+  }
+}
+
+body.popolo-blue {
+  @include colorChange($popolo-blue);
+}
+
+body.popolo-yellow {
+  @include colorChange($popolo-yellow);
+}
+
+body.popolo-green {
+  @include colorChange($popolo-green);
+}
+
+body.popolo-red {
+  @include colorChange($popolo-red);
 }

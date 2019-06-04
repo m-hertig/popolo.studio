@@ -1,7 +1,9 @@
 import * as $ from 'jquery';
 
 var $popolo_texts = ["design","prototyping", "consulting", "space", "research", "education"];
+var $popolo_colors = ["popolo-red","popolo-green","popolo-yellow","popolo-blue"];
 var $popolo_texts_index = 0;
+var $popolo_colors_index = 0;
 var intervalID;
 
 // To avoid flash of unstyled content
@@ -11,16 +13,12 @@ $(window).on('load', function () {
   $('html').removeClass('hidden');
  });
 
- $(".cta_button").click(function(){
-   $(".contact-form").slideDown("fast");
- });
-
  $(".close").click(function(){
    $(".contact-form").slideUp("fast");
  });
 
  $( ".contact-form .form-wrapper" ).submit(function( event ) {
-   if ( $( "input:first" ).val() == "" ) {
+   if ( $( "input:first" ).val() === "" ) {
      $( ".validaton" ).text( "Please tell us your email address first" ).show();
      return;
    } else {
@@ -50,6 +48,13 @@ function nextText(){
       $('.popolo-variable').html($popolo_texts[$popolo_texts_index]);
     });
     $('.popolo-variable').fadeIn(300);
+    $('body').attr( "class", $popolo_colors[$popolo_colors_index] );
+
+    $popolo_colors_index++;
+    if ($popolo_colors_index >= 4 ) {
+      $popolo_colors_index = 0;
+    }
+
     $popolo_texts_index++;
     if ($popolo_texts_index >= 6 ) {
       $popolo_texts_index = 0;
@@ -71,9 +76,7 @@ $(".popolo-title").hover( function () {
 
 $(".button_joy").hover( function () {
   $(this).fadeOut(0, function () {
-    $(this).html('how');
-    $(".contact_message").html("Please bring me joy");
-    setTimeout(function() {$(".contact_message").focus();},200);
+    $(this).html('now');
   });
   $(this).fadeIn(100);
 },function () {
@@ -84,10 +87,26 @@ $(".button_joy").hover( function () {
   window.clearInterval(intervalID);
 });
 
+$(".button_joy").click(function(){
+  openContactForm("Hi, please bring me joy");
+});
+$(".button_education").click(function(){
+  openContactForm("I want to be educated");
+});
+$(".button_social").click(function(){
+  openContactForm("Dear popolo, I need a social encounter");
+});
+$(".button_happy").click(function(){
+  openContactForm("Lets get together and feel alright");
+});
+$(".button_calm").click(function(){
+  openContactForm("Hi, I'm stressed out");
+});
+
+
 $(".button_education").hover( function () {
   $(this).fadeOut(0, function () {
     $(this).html('yes please');
-    $(".contact_message").attr("placeholder","I want to be educated");
   });
   $(this).fadeIn(100);
 },function () {
@@ -97,6 +116,13 @@ $(".button_education").hover( function () {
   $(this).fadeIn(100);
   window.clearInterval(intervalID);
 });
+
+function openContactForm($text) {
+  console.log("contact form");
+  $(".contact_message").html($text);
+  $(".contact-form").slideDown("fast");
+  $('#contact_message').focus();
+}
 
 
 
