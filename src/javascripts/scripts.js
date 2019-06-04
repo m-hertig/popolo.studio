@@ -74,17 +74,13 @@ $(".popolo-title").hover( function () {
       window.clearInterval(intervalID);
 } );
 
-$(".button_joy").hover( function () {
-  $(this).fadeOut(0, function () {
-    $(this).html('now');
-  });
-  $(this).fadeIn(100);
+
+$(".cta_button").hover( function () {
+  $(this).children(".btn_label").addClass("invisible");
+  $(this).children(".btn_hidden").fadeIn(300);
 },function () {
-  $(this).fadeOut(0, function () {
-    $(this).html("joy");
-  });
-  $(this).fadeIn(100);
-  window.clearInterval(intervalID);
+  $(this).children(".btn_hidden").fadeOut(100);
+  $(this).children(".btn_label").removeClass("invisible");
 });
 
 $(".button_joy").click(function(){
@@ -101,20 +97,6 @@ $(".button_happy").click(function(){
 });
 $(".button_calm").click(function(){
   openContactForm("Hi, I'm stressed out");
-});
-
-
-$(".button_education").hover( function () {
-  $(this).fadeOut(0, function () {
-    $(this).html('yes please');
-  });
-  $(this).fadeIn(100);
-},function () {
-  $(this).fadeOut(0, function () {
-    $(this).html("education");
-  });
-  $(this).fadeIn(100);
-  window.clearInterval(intervalID);
 });
 
 function openContactForm($text) {
