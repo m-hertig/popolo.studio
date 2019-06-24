@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 
 var $popolo_texts = ["design","prototyping", "consulting", "space", "research", "education"];
-var $popolo_colors = ["popolo-red","popolo-green","popolo-yellow","popolo-blue"];
+var $popolo_colors = ["popolo-red","popolo-green","popolo-yellow",,"popolo-pink","popolo-blue"];
 var $popolo_texts_index = 0;
 var $popolo_colors_index = 0;
 var intervalID;
@@ -19,25 +19,27 @@ $(window).on('load', function () {
 
  $( ".contact-form .form-wrapper" ).submit(function( event ) {
    if ( $( "input:first" ).val() === "" ) {
+     event.preventDefault();
      $( ".validaton" ).text( "Please tell us your email address first" ).show();
      return;
-   } else {
-     var $email = $( ".contact_email" ).val();
-     var $message = $( ".contact_message" ).val();
-     console.log("email: "+$email);
-     console.log("message: "+$message);
-     $.post("http://martinhertig.ch/popolo/contactengine.php",{Email:$email, Message:$message},function(result){
-       $(".contact-form .form-wrapper").fadeOut(300, function () {
-         $('.contact-form .form-wrapper').html(result);
-       });
-       $(".contact-form .form-wrapper").fadeIn("300");
-       return;
-    });
-    $(".contact-form .form-wrapper").fadeOut(300, function () {
-      $('.contact-form .form-wrapper').html("Thank you for your message! You will hear from us soon.");
-    });
-    $(".contact-form .form-wrapper").fadeIn("300");
-   }
+    }
+   // else {
+   //   var email = $( ".contact_email" ).val();
+   //   var message = $( ".contact_message" ).val();
+   //   console.log("email: "+email);
+   //   console.log("message: "+message);
+   //   $.post("http://martinhertig.ch/popolo/contactengine.php",{Email:email, Message:message},function(result){
+   //     $(".contact-form .form-wrapper").fadeOut(300, function () {
+   //       $('.contact-form .form-wrapper').html(result);
+   //     });
+   //     $(".contact-form .form-wrapper").fadeIn("300");
+   //     return;
+   //  });
+   //  $(".contact-form .form-wrapper").fadeOut(300, function () {
+   //    $('.contact-form .form-wrapper').html("Thank you for your message! You will hear from us soon.");
+   //  });
+   //  $(".contact-form .form-wrapper").fadeIn("300");
+   // }
 
    //event.preventDefault();
  });
@@ -51,7 +53,7 @@ function nextText(){
     $('body').attr( "class", $popolo_colors[$popolo_colors_index] );
 
     $popolo_colors_index++;
-    if ($popolo_colors_index >= 4 ) {
+    if ($popolo_colors_index >= 5 ) {
       $popolo_colors_index = 0;
     }
 
