@@ -13,6 +13,16 @@ $(window).on('load', function () {
   $('html').removeClass('hidden');
  });
 
+// Detect if it is a touch device
+ window.addEventListener('touchstart', function onFirstTouch() {
+
+  // set some global variable
+  window.USER_IS_TOUCHING = true;
+
+  // we only need to know once that a human touched the screen, so we can stop listening now
+  window.removeEventListener('touchstart', onFirstTouch, false);
+}, false);
+
  $(".close").click(function(){
    $(".contact-form").slideUp("fast");
  });
@@ -76,14 +86,15 @@ $(".popolo-title").hover( function () {
       window.clearInterval(intervalID);
 } );
 
-
-$(".cta_button").hover( function () {
-  $(this).children(".btn_label").addClass("invisible");
-  $(this).children(".btn_hidden").fadeIn(300);
-},function () {
-  $(this).children(".btn_hidden").fadeOut(100);
-  $(this).children(".btn_label").removeClass("invisible");
-});
+if (!window.USER_IS_TOUCHING) {
+  $(".cta_button").hover( function () {
+    $(this).children(".btn_label").addClass("invisible");
+    $(this).children(".btn_hidden").show();
+  },function () {
+    $(this).children(".btn_hidden").hide();
+    $(this).children(".btn_label").removeClass("invisible");
+  });  
+}
 
 $(".button_joy").click(function(){
   openContactForm("Hi, please bring me joy");
