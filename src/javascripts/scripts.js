@@ -24,7 +24,12 @@ $(window).on('load', function () {
 }, false);
 
  $(".close").click(function(){
+
+   if ($('header').width() > 600 ){
    $(".contact-form").slideUp("fast");
+   } else {
+     $(".contact-form").hide("fast");
+   }
  });
 
  $( ".contact-form .form-wrapper" ).submit(function( event ) {
@@ -93,7 +98,7 @@ if (!window.USER_IS_TOUCHING) {
   },function () {
     $(this).children(".btn_hidden").hide();
     $(this).children(".btn_label").removeClass("invisible");
-  });  
+  });
 }
 
 $(".button_joy").click(function(){
@@ -115,8 +120,12 @@ $(".button_calm").click(function(){
 function openContactForm($text) {
   console.log("contact form");
   $(".contact_message").html($text);
-  $(".contact-form").slideDown("fast");
-  $('#contact_message').focus();
+  if ($('header').width() > 600 ){
+    $(".contact-form").slideDown("fast");
+    $('#contact_message').focus();
+  } else {
+    $(".contact-form").fadeIn("fast");
+  }
 }
 
 

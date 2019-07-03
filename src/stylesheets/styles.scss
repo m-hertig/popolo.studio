@@ -239,7 +239,7 @@ ul.team {
   }
 
   .contact-form {
-    bottom: 0;
+    top: 0;
     height: 100vh;
     font-size: 0.75em;
 
@@ -248,7 +248,7 @@ ul.team {
     }
 
     .validaton {
-      font-size: inherit;
+      font-size: 0.75em;
       padding: 0;
     }
 
@@ -257,12 +257,12 @@ ul.team {
     }
 
     .first-row {
-      padding: 1em;
-      width: calc(100% - 2em);
+      padding: 0;
       margin-bottom: 16px;
 
       .instructions {
-        padding: 0;
+        padding: 0 1em;
+        background-color: $popolo-bg;
       }
     }
 
@@ -283,14 +283,10 @@ ul.team {
       }
     }
 
-    .doppelpunkt {
-      display: inline;
-    }
-
     textarea {
-      padding: 0;
+      padding: 1em;
+      width: calc(100% - 2em);
       font-size: 0.75em;
-      width: 100%;
     }
   }
 
