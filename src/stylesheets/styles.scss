@@ -19,7 +19,7 @@
 
 $popolo-blue: #00f;
 $popolo-black: #1e1e1e;
-$popolo-bg: #ececec;
+$popolo-bg: #faf8f8;
 
 $popolo-red: #f00;
 $popolo-green: #0f0;
@@ -241,14 +241,14 @@ ul.team {
   .contact-form {
     top: 0;
     height: 100vh;
-    font-size: 0.75em;
+    font-size: 1em;
 
     .close {
       padding: 1em 0 0 2em;
     }
 
     .validaton {
-      font-size: 0.75em;
+      font-size: inherit;
       padding: 0;
     }
 
