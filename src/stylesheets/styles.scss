@@ -248,7 +248,8 @@ ul.team {
     }
 
     .validaton {
-      font-size: inherit;
+      font-size: 0.75em;
+      line-height: 1.4em;
       padding: 0;
     }
 
@@ -276,10 +277,11 @@ ul.team {
       button {
         width: 100%;
         margin-top: 16px;
+        padding: 1em;
       }
 
       input {
-        padding: 2em 1em !important;
+        padding: 1em !important;
       }
     }
 
@@ -287,6 +289,7 @@ ul.team {
       padding: 1em;
       width: calc(100% - 2em);
       font-size: 0.75em;
+      height: 30vh;
     }
   }
 
@@ -299,7 +302,8 @@ ul.team {
 
   .contact-form .instructions,
   .contact-form .second-row input {
-    padding-left: 2em;
+    padding-left: 1em;
+    width: calc(100% - 2em);
   }
 
   .small_text {
