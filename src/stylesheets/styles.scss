@@ -17,17 +17,17 @@
   }
 }
 
-$popolo-blue: #00f;
+$popolo-blue: #3e3eff;
 $popolo-black: #1e1e1e;
 $popolo-bg: #faf8f8;
 
-$popolo-red: #f00;
-$popolo-green: #0f0;
-$popolo-pink: #b2b;
+$popolo-pink: #ff3e56;
+$popolo-green: #21a42f;
+$popolo-violet: #ce39ed;
 $popolo-yellow: #cdc500;
 
 $font-size-large: 1.4em;
-$line-height-large: 1.35em;
+$line-height-large: 1.45em;
 $font-size-small: 0.4em;
 $line-height-small: 1.4em;
 
@@ -219,7 +219,7 @@ ul.team {
     padding: 1em 2em;
     font-size: 0.4em;
     text-align: right;
-    color: $popolo-red;
+    color: $popolo-pink;
   }
 }
 
@@ -404,10 +404,10 @@ body.popolo-green {
   @include colorChange($popolo-green);
 }
 
-body.popolo-red {
-  @include colorChange($popolo-red);
-}
-
 body.popolo-pink {
   @include colorChange($popolo-pink);
+}
+
+body.popolo-violet {
+  @include colorChange($popolo-violet);
 }

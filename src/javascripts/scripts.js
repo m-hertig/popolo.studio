@@ -1,7 +1,7 @@
 import * as $ from 'jquery';
 
 var $popolo_texts = ["design","prototyping", "consulting", "space", "research", "education"];
-var $popolo_colors = ["popolo-red","popolo-green","popolo-yellow",,"popolo-pink","popolo-blue"];
+var $popolo_colors = ["popolo-pink","popolo-green","popolo-yellow",,"popolo-violet","popolo-blue"];
 var $popolo_texts_index = 0;
 var $popolo_colors_index = 0;
 var intervalID;
@@ -9,6 +9,7 @@ var intervalID;
 // To avoid flash of unstyled content
 $('html').addClass('hidden');
 $(window).on('load', function () {
+  defineTimeColor();
   shuffleElements($('.team li') );
   $('html').removeClass('hidden');
  });
@@ -65,12 +66,12 @@ function nextText(){
       $('.popolo-variable').html($popolo_texts[$popolo_texts_index]);
     });
     $('.popolo-variable').fadeIn(300);
-    $('body').attr( "class", $popolo_colors[$popolo_colors_index] );
+    //$('body').attr( "class", $popolo_colors[$popolo_colors_index] );
 
-    $popolo_colors_index++;
-    if ($popolo_colors_index >= 5 ) {
-      $popolo_colors_index = 0;
-    }
+    // $popolo_colors_index++;
+    // if ($popolo_colors_index >= 5 ) {
+    //   $popolo_colors_index = 0;
+    // }
 
     $popolo_texts_index++;
     if ($popolo_texts_index >= 6 ) {
@@ -83,22 +84,41 @@ $(".popolo-title").hover( function () {
   nextText();
   intervalID = setInterval(nextText, 1100);
     },
-    function () {
-      $('.popolo-variable').fadeOut(300, function () {
-        $('.popolo-variable').html("studio");
-      });
-      $('.popolo-variable').fadeIn(300);
-      window.clearInterval(intervalID);
-} );
+   function () {
+      // $('.popolo-variable').fadeOut(300, function () {
+      //   $('.popolo-variable').html("studio");
+      // });
+      // $('.popolo-variable').fadeIn(300);
+    window.clearInterval(intervalID);
+ }
+);
 
-if (!window.USER_IS_TOUCHING) {
   $(".cta_button").hover( function () {
-    $(this).children(".btn_label").addClass("invisible");
-    $(this).children(".btn_hidden").show();
+    if (!window.USER_IS_TOUCHING) {
+      $(this).children(".btn_label").addClass("invisible");
+      $(this).children(".btn_hidden").show();
+    }
   },function () {
-    $(this).children(".btn_hidden").hide();
-    $(this).children(".btn_label").removeClass("invisible");
+    if (!window.USER_IS_TOUCHING) {
+      $(this).children(".btn_hidden").hide();
+      $(this).children(".btn_label").removeClass("invisible");
+    }
   });
+
+
+function defineTimeColor() {
+	var today = new Date();
+  var time = today.getHours();
+  console.log("time: "+time);
+  if (time >= 4 && time < 10) {
+    $('body').attr( "class", "popolo-blue" );
+  } else if (time < 16) {
+    $('body').attr( "class", "popolo-pink" );
+  } else if ( time < 22) {
+    $('body').attr( "class", "popolo-green" );
+  } else if ( time >= 22 || time < 4) {
+    $('body').attr( "class", "popolo-violet" );
+  }
 }
 
 $(".button_joy").click(function(){
